@@ -3,7 +3,7 @@ let column;
 let grid;
 
 // creating the grid
-buildGrid(16,16);
+
 function buildGrid(x,y){ 
 
     for(let i = 0; i<x; i++){ // creating columns\
@@ -23,7 +23,7 @@ function buildGrid(x,y){
 function ColorBlue(){
 let cellNodeList = document.querySelectorAll('.rowCell');
 let cell_Array = Array.from(cellNodeList);
-console.log(cellNodeList);
+
  
 cellNodeList.forEach((node)=>{ // a more familiar method is written below.
     node.addEventListener("mouseover", ele =>{
@@ -42,11 +42,13 @@ for(let i=0; i < cell_Array.length; i++){
 
 let slider = document.getElementById("myRange");
 let Output = document.getElementById("sliderValue")
-Output.textContent = slider.value;
+Output.textContent = "   " + slider.value +" x " + slider.value;
 slider.oninput = function(){
-    Output.innerHTML =this.value;
+    Output.textContent = "   "+ this.value + " x " + this.value;
+    console.log(this.value);
+    
+    //buildGrid(this.value,this.value);
 }
-
 
 ColorBlue();
 
