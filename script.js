@@ -1,21 +1,50 @@
+let row;
+let column;
+let grid;
 
-let grid = document.querySelector('.grid');
-console.log(grid)
 // creating the grid
+buildGrid(16,16);
+function buildGrid(x,y){ 
 
-function creatGrid(x,y){
-    for(let i = 0; i<y; i++){ // creating columns\
-        let column = document.createElement('div');
+    for(let i = 0; i<x; i++){ // creating columns\
+        grid = document.querySelector('.grid');
+        column = document.createElement('div');
         column.classList.add('colCell')
         grid.appendChild(column);
         
-        for(let j = 0; j<x+1; j++){
-            let row = document.createElement('div');
+        for(let j = 0; j<y; j++){ // creating rows
+            row = document.createElement('div');
             row.classList.add('rowCell')
             column.appendChild(row);
+            
         }
 
     }
 }
-creatGrid(16,16)
+
+
+
+function ColorBlue(){
+let cellNodeList = document.querySelectorAll('.rowCell');
+let cell_Array = Array.from(cellNodeList);
+console.log(cellNodeList);
+ 
+cellNodeList.forEach((node)=>{ // a more familiar method is written below.
+    node.addEventListener("mouseover", ele =>{
+        console.log(ele);
+        ele.target.style.backgroundColor = "blue"
+    });
+
+});
+/*
+for(let i=0; i < cell_Array.length; i++){ 
+    cellNodeList[i].addEventListener("mouseover", e =>{
+        e.target.style.backgroundColor = 'blue';
+    })
+}*/
+}
+
+ColorBlue();
+
+
 
