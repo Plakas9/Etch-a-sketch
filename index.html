@@ -11,14 +11,18 @@
 <body>
 
 <header id = "header"><h1>Etch-A-Sketch</h1></header>
-<div container>
+<div class = "container">
     <div class = "grid"></div>
 
-    <div class = "controls">
+    <div class = "controlsContainer">
+        
+        <header id ="controlHeader"><h2>controls</h2></header>
         <div class ="sliderContainer">
             <input type = "range" min ="2" max = "100" class = "slider" id ="myRange">
+        <span>value:<span id="sliderValue"></span></span>
         </div>
     </div>
+
 </div>
 
 

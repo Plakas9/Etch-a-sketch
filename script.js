@@ -15,14 +15,10 @@ function buildGrid(x,y){
         for(let j = 0; j<y; j++){ // creating rows
             row = document.createElement('div');
             row.classList.add('rowCell')
-            column.appendChild(row);
-            
+            column.appendChild(row);     
         }
-
     }
 }
-
-
 
 function ColorBlue(){
 let cellNodeList = document.querySelectorAll('.rowCell');
@@ -43,6 +39,14 @@ for(let i=0; i < cell_Array.length; i++){
     })
 }*/
 }
+
+let slider = document.getElementById("myRange");
+let Output = document.getElementById("sliderValue")
+Output.textContent = slider.value;
+slider.oninput = function(){
+    Output.innerHTML =this.value;
+}
+
 
 ColorBlue();
 
