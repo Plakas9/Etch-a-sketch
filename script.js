@@ -39,17 +39,27 @@ for(let i=0; i < cell_Array.length; i++){
     })
 }*/
 }
+function gridsize(){
 
 let slider = document.getElementById("myRange");
 let Output = document.getElementById("sliderValue")
 Output.textContent = "   " + slider.value +" x " + slider.value;
+let x = slider.value;
 slider.oninput = function(){
     Output.textContent = "   "+ this.value + " x " + this.value;
-    console.log(this.value);
-    
-    //buildGrid(this.value,this.value);
+    x = this.value;
+    return x;
 }
 
+
+function resetCelL(){
+
+    
+}
+
+}
+gridsize();
+buildGrid(16,16);
 ColorBlue();
 
 
