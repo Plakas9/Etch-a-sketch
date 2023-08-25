@@ -27,6 +27,7 @@ function colorBlue(){
         node.addEventListener("mouseover", ele =>{
         // console.log(ele);
             ele.target.style.backgroundColor = "blue"
+        
         });
 
     });
@@ -67,13 +68,28 @@ function resetGrid(){
 
 }
 
+function buttons(){
+    
+    // color blue
+    let BlueButton = document.querySelector('#colorBlue');
+    console.log(BlueButton);
+    BlueButton.addEventListener("click", colorBlue);
+    // reset
+    let reset = document.querySelector('#reset');
+    reset.addEventListener('click',  ()=>{
 
-let BlueButton = document.querySelector('#colorBlue');
-console.log(BlueButton);
-BlueButton.addEventListener("click", colorBlue);
+        resetGrid();
+        let sliderOutput = document.getElementById('sliderValue');
+        sliderOutput.textContent = "   "+  0 + " x " + 0;
+    });
 
+
+}
+
+
+buttons();
 gridSize();
 buildGrid(16,16);
-colorBlue();
+
 
 
