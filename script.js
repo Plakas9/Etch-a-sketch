@@ -4,9 +4,9 @@ let grid;
 
 // creating the grid
 
-function buildGrid(x,y){ 
+function buildGrid(size,y){ 
     resetGrid();
-    for(let i = 0; i<x; i++){ // creating columns\
+    for(let i = 0; i<size; i++){ // creating columns\
         grid = document.querySelector('.grid');
         column = document.createElement('div');
         column.classList.add('colCell')
@@ -20,10 +20,8 @@ function buildGrid(x,y){
     }
 }
 
-function ColorBlue(){
+function colorBlue(){
     let cellNodeList = document.querySelectorAll('.rowCell');
-    let cell_Array = Array.from(cellNodeList);
-
     
     cellNodeList.forEach((node)=>{ // a more familiar method is written below.
         node.addEventListener("mouseover", ele =>{
@@ -32,6 +30,7 @@ function ColorBlue(){
         });
 
     });
+    
     /*
     for(let i=0; i < cell_Array.length; i++){ 
         cellNodeList[i].addEventListener("mouseover", e =>{
@@ -39,17 +38,18 @@ function ColorBlue(){
         })
     }*/
 }
-function gridsize(){
+function gridSize(){
 
     let slider = document.getElementById("myRange");
     let Output = document.getElementById("sliderValue")
-    Output.textContent = "   " + slider.value +" x " + slider.value;
-    let x = slider.value;
+    Output.textContent = "   " + slider.value +" size " + slider.value;
+    let size = slider.value;
     slider.oninput = function(){
         Output.textContent = "   "+ this.value + " x " + this.value;
-        x = this.value;
-        buildGrid(x,x);
+        size = this.value;
+        buildGrid(size,size);
         
+        return size;
         
     }
 }
@@ -57,8 +57,7 @@ function gridsize(){
 function resetGrid(){
     let cellNodeListRow = document.querySelectorAll('.rowCell');
     let cellNodeCol = document.querySelectorAll('.colCell')
-    console.log(cellNodeCol);
-    console.log(cellNodeListRow);
+    
     cellNodeListRow.forEach((rowNode)=>{
         rowNode.remove();
     })
@@ -66,15 +65,15 @@ function resetGrid(){
         colNode.remove();
     })    
 
-   
-
-    
 }
 
 
+let BlueButton = document.querySelector('#colorBlue');
+console.log(BlueButton);
+BlueButton.addEventListener("click", colorBlue);
 
-gridsize();
+gridSize();
 buildGrid(16,16);
-ColorBlue();
+colorBlue();
 
 
