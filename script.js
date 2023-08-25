@@ -39,6 +39,37 @@ function colorBlue(){
         })
     }*/
 }
+
+
+function randomColor(){
+    let cellNodeList_2 = document.querySelectorAll('.rowCell')
+    let cell_Array = Array.from(cellNodeList_2);
+    for(let i=0; i < cell_Array.length; i++){ 
+        cellNodeList_2[i].addEventListener("mouseover", e =>{
+            c1=Math.round(Math.random()*255);
+            c2=Math.round(Math.random()*255);
+            c3=Math.round(Math.random()*255);
+            console.log(c1,c2,c3);
+            
+            e.target.style.backgroundColor = 'rgb(c1,c2,c3)'
+        })
+    }
+
+
+    /*
+    cellNodeList_2.forEach((node)=>{
+        node.addEventListener('mouseover', e =>{
+            c1=Math.round(Math.random()*255);
+            c2=Math.round(Math.random()*255);
+            c3=Math.round(Math.random()*255);
+            console.log(c1,c2,c3);
+            
+            e.target.style.backgroundColor = 'rgb(c1,c2,c3)'
+        });
+    });*/
+}
+
+
 function gridSize(){
 
     let slider = document.getElementById("myRange");
@@ -87,9 +118,9 @@ function buttons(){
 }
 
 
+
 buttons();
 gridSize();
 buildGrid(16,16);
-
-
+randomColor();
 
