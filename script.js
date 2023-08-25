@@ -52,19 +52,27 @@ function gridsize(){
     }
 }
 
-function resetCell(){
+function resetGrid(){
     let cellNodeListRow = document.querySelectorAll('.rowCell');
     let cellNodeCol = document.querySelectorAll('.colCell')
     console.log(cellNodeCol);
-    //console.log("" ,cellNodeListRow);
-    return cellNodeListRow;(
+    console.log(cellNodeListRow);
+    cellNodeListRow.forEach((rowNode)=>{
+        rowNode.remove();
+    })
+    cellNodeCol.forEach((colNode)=>{
+        colNode.remove();
+    })    
+
+   
 
     
 }
 
 
+
 gridsize();
 buildGrid(16,16);
 ColorBlue();
-resetCell();
+resetGrid();
 
