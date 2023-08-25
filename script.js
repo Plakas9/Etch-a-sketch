@@ -5,7 +5,7 @@ let grid;
 // creating the grid
 
 function buildGrid(x,y){ 
-
+    resetGrid();
     for(let i = 0; i<x; i++){ // creating columns\
         grid = document.querySelector('.grid');
         column = document.createElement('div');
@@ -48,7 +48,9 @@ function gridsize(){
     slider.oninput = function(){
         Output.textContent = "   "+ this.value + " x " + this.value;
         x = this.value;
-        return x;
+        buildGrid(x,x);
+        
+        
     }
 }
 
@@ -74,5 +76,5 @@ function resetGrid(){
 gridsize();
 buildGrid(16,16);
 ColorBlue();
-resetGrid();
+
 
