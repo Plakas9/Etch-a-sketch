@@ -24,6 +24,7 @@ body{
     width: 200px;
     display:flex;
     flex-direction: column;
+    
     gap: 15px;
     
 }
@@ -73,7 +74,7 @@ body{
     
 }
 
-#colorBlue, #reset{
+.controlButtons{
     background-color: rgb(0, 0, 0);
     color: rgb(30, 255, 0);
     border-radius: 25px;

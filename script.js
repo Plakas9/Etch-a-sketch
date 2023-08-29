@@ -20,6 +20,22 @@ function buildGrid(size,y){
     }
 }
 
+function buildGridwithoutReset(size,y){ 
+    
+    for(let i = 0; i<size; i++){ // creating columns\
+        grid = document.querySelector('.grid');
+        column = document.createElement('div');
+        column.classList.add('colCell')
+        grid.appendChild(column);
+        
+        for(let j = 0; j<y; j++){ // creating rows
+            row = document.createElement('div');
+            row.classList.add('rowCell')
+            column.appendChild(row);     
+        }
+    }
+}
+
 function colorBlue(){
     let cellNodeList = document.querySelectorAll('.rowCell');
     
@@ -32,26 +48,21 @@ function colorBlue(){
 
     });
     
-    /*
-    for(let i=0; i < cell_Array.length; i++){ 
-        cellNodeList[i].addEventListener("mouseover", e =>{
-            e.target.style.backgroundColor = 'blue';
-        })
-    }*/
+    
 }
 
 
-function randomColor(){
+function randomColor(){ // i used different for loop instead of forEach just to practice using different logic.
     let cellNodeList_2 = document.querySelectorAll('.rowCell')
     let cell_Array = Array.from(cellNodeList_2);
     for(let i=0; i < cell_Array.length; i++){ 
         cellNodeList_2[i].addEventListener("mouseover", e =>{
-            c1=Math.round(Math.random()*255);
-            c2=Math.round(Math.random()*255);
-            c3=Math.round(Math.random()*255);
-            console.log(c1,c2,c3);
+            let c1=Math.round(Math.random()*255);
+            let c2=Math.round(Math.random()*255);
+            let c3=Math.round(Math.random()*255);
             
-            e.target.style.backgroundColor = 'rgb(c1,c2,c3)'
+            
+            e.target.style.backgroundColor = "rgb("+ c1 +"," +c2+ ","+ c3 +")";
         })
     }
 
@@ -87,6 +98,8 @@ function gridSize(){
 }
 
 function resetGrid(){
+    
+    
     let cellNodeListRow = document.querySelectorAll('.rowCell');
     let cellNodeCol = document.querySelectorAll('.colCell')
     
@@ -95,32 +108,43 @@ function resetGrid(){
     })
     cellNodeCol.forEach((colNode)=>{
         colNode.remove();
-    })    
-
+    })   
+    
+    
+    
+    
 }
 
-function buttons(){
+function Controlbuttons(){
     
     // color blue
     let BlueButton = document.querySelector('#colorBlue');
-    console.log(BlueButton);
-    BlueButton.addEventListener("click", colorBlue);
+    
+    BlueButton.addEventListener('click', colorBlue);
+
+    //RandomColor
+    let randomButton = document.querySelector('#random');
+    randomButton.addEventListener('click', randomColor);
+    
     // reset
     let reset = document.querySelector('#reset');
     reset.addEventListener('click',  ()=>{
 
-        resetGrid();
+        buildGrid(1,1);
         let sliderOutput = document.getElementById('sliderValue');
-        sliderOutput.textContent = "   "+  0 + " x " + 0;
+        sliderOutput.textContent = "   "+  1 + " x " + 1;
+        
     });
 
+   
 
 }
 
 
 
-buttons();
+Controlbuttons();
 gridSize();
 buildGrid(16,16);
-randomColor();
+
+//randomColor();
 
