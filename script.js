@@ -21,20 +21,7 @@ function buildGrid(size,y){
 }
 
 
-function colorBlue(){
-    let cellNodeList = document.querySelectorAll('.rowCell');
-    
-    cellNodeList.forEach((node)=>{ // a more familiar method is written below.
-        node.addEventListener("mouseover", ele =>{
-        // console.log(ele);
-            ele.target.style.backgroundColor = "blue"
-        
-        });
 
-    });
-    
-    
-}
 
 
 function rainbow(){ // i used different for loop instead of forEach just to practice using different logic.
