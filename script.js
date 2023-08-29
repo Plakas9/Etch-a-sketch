@@ -20,21 +20,6 @@ function buildGrid(size,y){
     }
 }
 
-function buildGridwithoutReset(size,y){ 
-    
-    for(let i = 0; i<size; i++){ // creating columns\
-        grid = document.querySelector('.grid');
-        column = document.createElement('div');
-        column.classList.add('colCell')
-        grid.appendChild(column);
-        
-        for(let j = 0; j<y; j++){ // creating rows
-            row = document.createElement('div');
-            row.classList.add('rowCell')
-            column.appendChild(row);     
-        }
-    }
-}
 
 function colorBlue(){
     let cellNodeList = document.querySelectorAll('.rowCell');
@@ -52,17 +37,18 @@ function colorBlue(){
 }
 
 
-function randomColor(){ // i used different for loop instead of forEach just to practice using different logic.
+function rainbow(){ // i used different for loop instead of forEach just to practice using different logic.
     let cellNodeList_2 = document.querySelectorAll('.rowCell')
     let cell_Array = Array.from(cellNodeList_2);
     for(let i=0; i < cell_Array.length; i++){ 
         cellNodeList_2[i].addEventListener("mouseover", e =>{
-            let c1=Math.round(Math.random()*255);
-            let c2=Math.round(Math.random()*255);
-            let c3=Math.round(Math.random()*255);
             
+            let randomR=Math.round(Math.random()*255);
+            let randomG=Math.round(Math.random()*255);
+            let randomB=Math.round(Math.random()*255);
+            console.log(randomR,randomG,randomB);
             
-            e.target.style.backgroundColor = "rgb("+ c1 +"," +c2+ ","+ c3 +")";
+            e.target.style.backgroundColor = "rgb("+ randomR +"," +randomG+ ","+ randomB +")";
         })
     }
 
@@ -70,12 +56,12 @@ function randomColor(){ // i used different for loop instead of forEach just to 
     /*
     cellNodeList_2.forEach((node)=>{
         node.addEventListener('mouseover', e =>{
-            c1=Math.round(Math.random()*255);
-            c2=Math.round(Math.random()*255);
-            c3=Math.round(Math.random()*255);
-            console.log(c1,c2,c3);
+            randomR=Math.round(Math.random()*255);
+            randomG=Math.round(Math.random()*255);
+            randomB=Math.round(Math.random()*255);
+            console.log(randomR,randomG,randomB);
             
-            e.target.style.backgroundColor = 'rgb(c1,c2,c3)'
+            e.target.style.backgroundColor = 'rgb(randomR,randomG,randomB)'
         });
     });*/
 }
@@ -85,7 +71,7 @@ function gridSize(){
 
     let slider = document.getElementById("myRange");
     let Output = document.getElementById("sliderValue")
-    Output.textContent = "   " + slider.value +" size " + slider.value;
+    Output.textContent = "   " + slider.value +" x " + slider.value;
     let size = slider.value;
     slider.oninput = function(){
         Output.textContent = "   "+ this.value + " x " + this.value;
@@ -117,15 +103,13 @@ function resetGrid(){
 
 function Controlbuttons(){
     
-    // color blue
-    let BlueButton = document.querySelector('#colorBlue');
-    
-    BlueButton.addEventListener('click', colorBlue);
 
     //RandomColor
     let randomButton = document.querySelector('#random');
-    randomButton.addEventListener('click', randomColor);
+    randomButton.addEventListener('click', rainbow);
     
+    let FadeButton = document.querySelector('#fadeBlack');
+    FadeButton.addEventListener('click', FadeToBlack);
     // reset
     let reset = document.querySelector('#reset');
     reset.addEventListener('click',  ()=>{
@@ -139,12 +123,31 @@ function Controlbuttons(){
    
 
 }
+function FadeToBlack(){ // 10 interations was to fast so i made it more
 
+    let cellNodeList = document.querySelectorAll('.rowCell');
+    console.log(cellNodeList);
+    let intialColor = 255;
+    cellNodeList.forEach(cell => {
+        cell.addEventListener("mouseover",(darker)=>{
+            console.log(intialColor);
+        darker.target.style.backgroundColor = "rgb("+ intialColor +"," +intialColor+ ","+ intialColor +")";
+        
+        if(intialColor >= 0){
+            intialColor = intialColor - 0.75;
+            console.log(intialColor);
+        }
+        });
+   
+    });
+
+
+}
 
 
 Controlbuttons();
 gridSize();
 buildGrid(16,16);
 
-//randomColor();
+//rainbow();
 

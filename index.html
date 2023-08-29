@@ -16,15 +16,24 @@
     <div class = "grid"></div>
 
     <div class = "controlsContainer">
-        
-        <header id ="controlHeader"><h2>controls</h2></header>
+        <div class = "buttons">
+            
+            <header id ="controlHeader"><h2>controls</h2></header>
+            <input type="color" id="colorpicker" >
+           
+            <button id="colorBlue" class = "controlButtons">Blue</button>
+            <button id ="random" class = "controlButtons"> Random Colours</button>
+            <button id ="fadeBlack" class = "controlButtons">Fade To Black</button>
+            <button id="reset" class = "controlButtons">Reset grid-size</button>
+            
+            
+       </div>
        
-        <button id="colorBlue" class = "controlButtons">Blue</button>
-        <button id ="random" class = "controlButtons"> Random Colours</button>
-        <button id="reset" class = "controlButtons">Reset grid-size!</button>
         <div class ="sliderContainer">
+            
+            
             <input type = "range" value="16" min ="1" max = "64" class = "slider" id ="myRange">
-        <span>grid size:<span id="sliderValue"></span></span>
+            <span class = "sliderText">grid size:<span id="sliderValue"></span></span>
         </div>
     </div>
 
