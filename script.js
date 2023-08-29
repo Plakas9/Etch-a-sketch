@@ -105,14 +105,16 @@ function Controlbuttons(){
     
 
     //RandomColor
-    let randomButton = document.querySelector('#random');
-    randomButton.addEventListener('click', rainbow);
+    document.querySelector('#random').addEventListener('click', rainbow);
     
-    let FadeButton = document.querySelector('#fadeBlack');
-    FadeButton.addEventListener('click', FadeToBlack);
+    // Fade to black
+    document.querySelector('#fadeBlack').addEventListener('click', FadeToBlack);
+
+    // color wheel
+
+    document.querySelector('#colorpicker').addEventListener('click',colorWheel);
     // reset
-    let reset = document.querySelector('#reset');
-    reset.addEventListener('click',  ()=>{
+    document.querySelector('#reset').addEventListener('click',  ()=>{
 
         buildGrid(1,1);
         let sliderOutput = document.getElementById('sliderValue');
@@ -143,7 +145,19 @@ function FadeToBlack(){ // 10 interations was to fast so i made it more
 
 
 }
-
+function colorWheel(){
+   
+    let cellNodeList = document.querySelectorAll('.rowCell');
+    console.log(cellNodeList);
+    
+    cellNodeList.forEach(e=>{
+        e.addEventListener('mouseover', ele =>{
+            let color= document.querySelector("#colorpicker").value
+    
+            ele.target.style.backgroundColor = ' '+ color +' '
+        });
+    })
+}
 
 Controlbuttons();
 gridSize();
