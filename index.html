@@ -4,44 +4,50 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> Etch-A-Sketch</title>
     <script src="script.js" defer></script>
+    <link href="https://fonts.cdnfonts.com/css/new-blackbuster" rel="stylesheet">
     
+        
+
+
     <link href="style.css" rel ="stylesheet" type = "text/css" >
 
 
 <body>
 
-<header id = "header"><h1>Etch-A-Sketch</h1></header>
+    <main>
+        <header id = "header"><h1>Etch-A-Sketch</h1></header>
 
-<section class = "container">
-    <div class = "grid"></div>
+        <section class = "container">
+            <div class = "grid"></div>
 
-    <div class = "controlsContainer">
-        <div class = "buttons">
-            
-            <header id ="controlHeader"><h2>controls</h2></header>
-            
-           
-            <button id ="random" class = "controlButtons"> Random Colours</button>
-            <button id ="fadeBlack" class = "controlButtons">Fade To Black</button>
-            <button id="reset" class = "controlButtons">Reset grid-size</button>
+            <div class = "controlsContainer">
+                <div class = "buttons">
+                    
+                    <header id ="controlHeader"><h2>controls</h2></header>
+                    
+                
+                    <button id ="random" class = "controlButtons"> Random Colours</button>
+                    <button id ="fadeBlack" class = "controlButtons">Fade To Black</button>
+                    <button id="reset" class = "controlButtons">Reset grid-size</button>
 
-            <input type="color" id="colorpicker" >
-           
+                    <input type="color" id="colorpicker" value="#FFFFFF" >
+                
+                    
+                    
+            </div>
             
-            
-       </div>
-       
-        <div class ="sliderContainer">
-            
-            
-            <input type = "range" value="16" min ="1" max = "64" class = "slider" id ="myRange">
-            <span class = "sliderText">grid size:<span id="sliderValue"></span></span>
-        </div>
-    </div>
+                <div class ="sliderContainer">
+                    
+                    
+                    <input type = "range" value="16" min ="1" max = "64" class = "slider" id ="myRange">
+                    <span class = "sliderText">grid size:<span id="sliderValue"></span></span>
+                </div>
+            </div>
 
-</section>
+        </section>
+    </main>
 
-
+    <footer>Copyright © 2023 @Andyrew</footer>
 </body>
 
 </html>
