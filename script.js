@@ -24,7 +24,7 @@ function buildGrid(size,y){
 
 
 
-function rainbow(){ // i for loop instead of forEach just to practice using different logic.
+function rainbow(){ // i for loop instead of forEach just to practice using different logic(compare with FadeToBlack)
     let cellNodeList_2 = document.querySelectorAll('.rowCell')
     let cell_Array = Array.from(cellNodeList_2);
     for(let i=0; i < cell_Array.length; i++){ 
@@ -59,6 +59,15 @@ function FadeToBlack(){ // 10 interations was to fast so i made it more
    
     });
 
+
+}
+function eraser(){
+    let cellNodeList = document.querySelectorAll('.rowCell');
+        cellNodeList.forEach(Node=>{
+            Node.addEventListener('mouseover', e=>{
+                e.target.style.backgroundColor = 'black';
+            });
+        })
 
 }
 
@@ -108,7 +117,14 @@ function Controlbuttons(){
     // color wheel
 
     document.querySelector('#colorpicker').addEventListener('click',colorWheel);
+    //eraser
+
+    document.querySelector('#eraser').addEventListener('click', eraser);
+    
+    
     // reset
+
+
     document.querySelector('#reset').addEventListener('click',  ()=>{
 
         buildGrid(1,1);

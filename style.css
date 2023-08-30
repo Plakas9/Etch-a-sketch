@@ -206,6 +206,9 @@ input[type="range"] {
     font-family: 'New Pizza', sans-serif; ;
 
 }
+#eraser{
+    color:black;
+}
 #reset.controlButtons{
     background-color: black;
     color: purple;
