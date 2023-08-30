@@ -2,7 +2,7 @@
 
                 
 body{
-    background-color: black;
+    background-color:  black;
     font-family: 'New Pizza', sans-serif;
                                                 
 }
@@ -19,6 +19,7 @@ body{
 
 #controlHeader{
     text-align: center;
+    color: purple;
     
 }
 
@@ -34,7 +35,7 @@ body{
     color: rgb(255, 255, 255);
     border: 2px solid rgb(255, 255, 255);
     border-radius: 5px;
-    background-color: black;
+    background-color: rgb(0, 0, 0);
     width: 200px;
     display:flex;
     flex-direction: column;
@@ -45,7 +46,7 @@ body{
 #header{
     font-size: 40px;
     
-    color: rgb(255, 255, 255);
+    color: purple;
     text-align: center;
     margin: 0 auto;
     width: 770px;
@@ -81,23 +82,101 @@ body{
 
 .sliderContainer{
     width: 75%;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
     
 
 }
 .sliderText{
     text-align: center;
-    
+    color:purple;
     
     font-size: 15px;
 
 }
 .slider{
     width: 100%; 
-    height: 25px;    
+    height: 35px;    
     
 }
 
 
+
+  
+ /* By default, the WebKit browsers render the thumb so that it is not centered on the track.
+
+  In order to properly center the thumb use the following formula and apply it to the margin-top property:
+margin-top = (track height in pixels / 2) - (thumb height in pixels /2)
+*/
+
+input[type="range"] {
+    -webkit-appearance: none;
+     appearance: none;
+     background: transparent;
+     cursor: pointer;
+     width: 100%;
+ }
+ 
+ /* Removes default focus */
+ input[type="range"]:focus {
+   outline: none;
+ }
+ 
+ 
+ /* slider track */
+ input[type="range"]::-webkit-slider-runnable-track {
+    background-color: purple;
+    border-radius: 25px;
+    height: 0.5rem;  
+ }
+ input[type="range"]::-moz-range-track {
+    background-color: purple;
+    border-radius: 0.5rem;
+    height: 0.5rem;
+ }
+ 
+ /* slider thumb */
+ input[type="range"]::-webkit-slider-thumb {
+   -webkit-appearance: none; /* Override default look */
+    appearance: none;
+    margin-top: -4px; /* Centers thumb on the track */
+ 
+    /*custom styles*/
+    background-color: white;
+    height: 1rem;
+    width: 1rem;
+    border-radius: 25px;
+ }
+
+ input[type="range"]::-moz-range-thumb {
+    -webkit-appearance: none; /* Override default look */
+    appearance: none;
+    margin-top: -4px; /* Centers thumb on the track */
+ 
+    /*custom styles*/
+    background-color: white;
+    height: 1rem;
+    width: 1rem;
+    border-radius: 25px;
+ }
+ 
+ 
+ input[type="range"]:focus::-webkit-slider-thumb {   
+    border: none;
+    outline: none;
+    border-radius: 25px;
+ }
+  
+ /* slider thumb */
+ 
+ input[type="range"]:focus::-moz-range-thumb {
+   border: none;
+   outline: none;
+   border-radius: 25px;
+ }
+ 
+ 
 
 
 #colorpicker{
@@ -109,16 +188,28 @@ body{
     width:160px;
     padding-left: 25%;
 }
+
+
 #colorpicker::-webkit-color-swatch {
     border-radius: 50%;
     border: 1px solid rgb(255, 255, 255);
 }
+#colorpicker::-moz-color-swatch {
+    border-radius: 50%;
+    border: 1px solid rgb(255, 255, 255);
+}
+
 .controlButtons{
-    background-color: rgb(0, 0, 0);
+    background-color: purple;
     color: rgb(255, 255, 255);
     border-radius: 25px;
     font-family: 'New Pizza', sans-serif; ;
+
 }
+#reset.controlButtons{
+    background-color: black;
+    color: purple;
+}   
 footer{
     color: rgb(255, 255, 255);
     text-align: center;

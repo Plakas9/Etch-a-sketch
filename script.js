@@ -24,7 +24,7 @@ function buildGrid(size,y){
 
 
 
-function rainbow(){ // i used different for loop instead of forEach just to practice using different logic.
+function rainbow(){ // i for loop instead of forEach just to practice using different logic.
     let cellNodeList_2 = document.querySelectorAll('.rowCell')
     let cell_Array = Array.from(cellNodeList_2);
     for(let i=0; i < cell_Array.length; i++){ 
@@ -40,25 +40,36 @@ function rainbow(){ // i used different for loop instead of forEach just to prac
     }
 
 
-    /*
-    cellNodeList_2.forEach((node)=>{
-        node.addEventListener('mouseover', e =>{
-            randomR=Math.round(Math.random()*255);
-            randomG=Math.round(Math.random()*255);
-            randomB=Math.round(Math.random()*255);
-            console.log(randomR,randomG,randomB);
-            
-            e.target.style.backgroundColor = 'rgb(randomR,randomG,randomB)'
+}
+function FadeToBlack(){ // 10 interations was to fast so i made it more
+
+    let cellNodeList = document.querySelectorAll('.rowCell');
+    console.log(cellNodeList);
+    let intialColor = 255;
+    cellNodeList.forEach(cell => {
+        cell.addEventListener("mouseover",(darker)=>{
+            console.log(intialColor);
+        darker.target.style.backgroundColor = "rgb("+ intialColor +"," +intialColor+ ","+ intialColor +")";
+        
+        if(intialColor >= 0){
+            intialColor = intialColor - 0.75;
+            console.log(intialColor);
+        }
         });
-    });*/
+   
+    });
+
+
 }
 
 
 function gridSize(){
 
+    document.getElementById("myRange").remove;
     let slider = document.getElementById("myRange");
     let Output = document.getElementById("sliderValue")
     Output.textContent = "   " + slider.value +" x " + slider.value;
+    
     let size = slider.value;
     slider.oninput = function(){
         Output.textContent = "   "+ this.value + " x " + this.value;
@@ -82,9 +93,6 @@ function resetGrid(){
     cellNodeCol.forEach((colNode)=>{
         colNode.remove();
     })   
-    
-    
-    
     
 }
 
@@ -112,26 +120,7 @@ function Controlbuttons(){
    
 
 }
-function FadeToBlack(){ // 10 interations was to fast so i made it more
 
-    let cellNodeList = document.querySelectorAll('.rowCell');
-    console.log(cellNodeList);
-    let intialColor = 255;
-    cellNodeList.forEach(cell => {
-        cell.addEventListener("mouseover",(darker)=>{
-            console.log(intialColor);
-        darker.target.style.backgroundColor = "rgb("+ intialColor +"," +intialColor+ ","+ intialColor +")";
-        
-        if(intialColor >= 0){
-            intialColor = intialColor - 0.75;
-            console.log(intialColor);
-        }
-        });
-   
-    });
-
-
-}
 function colorWheel(){
    
     let cellNodeList = document.querySelectorAll('.rowCell');
